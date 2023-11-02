@@ -13,6 +13,7 @@ import markdown_it_html5_embed from "markdown-it-html5-embed";
 import markdown_it_ruby from "markdown-it-ruby";
 import markdown_it_sub from "markdown-it-sub";
 import markdown_it_sup from "markdown-it-sup";
+import markdown_it_replace_link from "markdown-it-replace-link";
 import Renderer from "markdown-it/lib/renderer";
 import Token from "markdown-it/lib/token";
 import { instanceLinkRegex } from "./config";
@@ -151,6 +152,16 @@ function localInstanceLinkParser(md: MarkdownIt) {
   });
 }
 
+function replacePictRsLinks(link: string) {
+  const pictRsHost = process.env.PICT_RS_STRIP;
+
+  if (pictRsHost === undefined) {
+    return link;
+  }
+
+  return link.replace(pictRsHost, "/pictrs");
+}
+
 export function setupMarkdown() {
   const markdownItConfig: MarkdownIt.Options = {
     html: false,
@@ -169,6 +180,10 @@ export function setupMarkdown() {
     .use(markdown_it_html5_embed, html5EmbedConfig)
     .use(markdown_it_container, "spoiler", spoilerConfig)
     .use(markdown_it_ruby)
+    .use(markdown_it_replace_link, {
+      processHTML: true,
+      replaceLink: replacePictRsLinks,
+    })
     .use(localInstanceLinkParser);
   // .use(markdown_it_emoji, {
   //   defs: emojiDefs,

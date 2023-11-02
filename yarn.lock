@@ -5046,7 +5046,7 @@ html-to-text@^9.0.5:
     htmlparser2 "^8.0.2"
     selderee "^0.11.0"
 
-htmlparser2@^8.0.0, htmlparser2@^8.0.2:
+htmlparser2@^8.0.0, htmlparser2@^8.0.1, htmlparser2@^8.0.2:
   version "8.0.2"
   resolved "https://registry.yarnpkg.com/htmlparser2/-/htmlparser2-8.0.2.tgz#f002151705b383e62433b5cf466f5b716edaec21"
   integrity sha512-GYdjWKDkbRLkZ5geuHs5NY1puJ+PXwP7+fHPRz06Eirsb9ugf6d8kkXav6ADhcODhFFPMIXyxkxSuMf3D6NCFA==
@@ -6395,6 +6395,14 @@ markdown-it-html5-embed@^1.0.0:
   dependencies:
     markdown-it "^8.4.0"
     mimoza "~1.0.0"
+
+markdown-it-replace-link@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/markdown-it-replace-link/-/markdown-it-replace-link-1.2.0.tgz#6ccc088f27062ae06719fc207732206a91e7a2fb"
+  integrity sha512-tIsShJvQOYwTHjIPhE1SWo12HjOtpEqSQfVoApm3fuIkVcZrSE7zK3iW8kXcaJYasf8Ddf+VbH5fNXCzfejOrQ==
+  optionalDependencies:
+    dom-serializer "^2.0.0"
+    htmlparser2 "^8.0.1"
 
 markdown-it-ruby@^0.1.1:
   version "0.1.1"
