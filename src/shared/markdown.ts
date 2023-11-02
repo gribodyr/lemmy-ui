@@ -43,15 +43,7 @@ if (isBrowser()) {
 }
 
 export function mdToHtml(text: string) {
-  // TODO: this must be revisited -- it strips the pict-rs host from the text so that images have relative paths instead of absolute ones
-  const pictRsStripHost = process.env.PICT_RS_STRIP_HOST;
-  let cleanText = text;
-
-  if (pictRsStripHost !== undefined) {
-    cleanText = cleanText.replace(pictRsStripHost, "");
-  }
-
-  return { __html: md.render(cleanText) };
+  return { __html: md.render(text) };
 }
 
 export function mdToHtmlNoImages(text: string) {
