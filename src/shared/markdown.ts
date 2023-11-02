@@ -153,9 +153,14 @@ function localInstanceLinkParser(md: MarkdownIt) {
 }
 
 function replacePictRsLinks(link: string) {
+  // check if we are running on the server
+  if (!process) {
+    return link;
+  }
+
   const pictRsHost = process.env.PICT_RS_STRIP;
 
-  if (pictRsHost === undefined) {
+  if (!pictRsHost) {
     return link;
   }
 
