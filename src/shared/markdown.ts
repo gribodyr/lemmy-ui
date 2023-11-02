@@ -154,7 +154,7 @@ function localInstanceLinkParser(md: MarkdownIt) {
 
 function replacePictRsLinks(link: string) {
   // check if we are running on the server
-  if (!process) {
+  if (typeof process !== "object") {
     return link;
   }
 
